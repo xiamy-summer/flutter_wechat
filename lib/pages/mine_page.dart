@@ -40,8 +40,10 @@ class _MinePageWidgetState extends State<MinePageWidget> {
                   ),
                   new Expanded(
                     child: new ListTile(
-
-                      title: new Text("SumMer",style: TextStyle(fontSize: 25.0),),
+                      title: new Text(
+                        "SumMer",
+                        style: TextStyle(fontSize: 25.0),
+                      ),
                       subtitle: new Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -62,6 +64,77 @@ class _MinePageWidgetState extends State<MinePageWidget> {
                 ],
               ),
             ),
+          ),
+          _card("支付", Icons.call_to_action),
+          new Card(
+            margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+            child: new Column(
+              children: <Widget>[
+                new ListTile(
+                  leading: new Icon(Icons.dashboard),
+                  title: new Text("收藏"),
+                  trailing: new Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    print("收藏");
+                  },
+                ),
+                //分割线
+                new Divider(height: 0.0),
+                new ListTile(
+                  leading: new Icon(Icons.photo),
+                  title: new Text("相册"),
+                  trailing: new Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    print("相册");
+                  },
+                ),
+                new Divider(height: 0.0),
+                new ListTile(
+                  leading: new Icon(Icons.credit_card),
+                  title: new Text("钱包"),
+                  trailing: new Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    print("钱包");
+                  },
+                ),
+                new Divider(height: 0.0),
+                new ListTile(
+                  leading: new Icon(Icons.tag_faces),
+                  title: new Text("表情"),
+                  trailing: new Icon(Icons.arrow_forward_ios),
+                  onTap: () async {
+                    print("表情");
+                  },
+                ),
+              ],
+            ),
+          ),
+          _card("设置", Icons.settings),
+        ],
+      ),
+    );
+  }
+
+  Card _card(String title, IconData leadingIcon,
+      {IconData trailingIcon = Icons.arrow_forward_ios}) {
+    return new Card(
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+      child: new Column(
+        children: <Widget>[
+          new ListTile(
+            leading: new Icon(leadingIcon),
+            title: new Text(title),
+            trailing: new Icon(trailingIcon),
+            onTap: () async {
+              switch (title) {
+                case "支付":
+                  print("支付");
+                  break;
+                case "设置":
+                  print("设置");
+                  break;
+              }
+            },
           ),
         ],
       ),

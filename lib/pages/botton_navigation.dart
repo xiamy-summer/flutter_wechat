@@ -3,9 +3,7 @@ import 'package:wechat/pages/address_book_page.dart';
 import 'package:wechat/pages/discover_page.dart';
 import 'package:wechat/pages/home_page.dart';
 import 'package:wechat/pages/mine_page.dart';
-import 'dart:io';
 
-import 'package:flutter/services.dart';
 //底部导航栏
 class BottomNavigationWidget extends StatefulWidget {
   @override
