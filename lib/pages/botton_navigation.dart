@@ -98,10 +98,11 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
             ),
           ),
         ],
-        //这是底部导航栏自带的位标属性，表示底部导航栏当前处于哪个导航标签。给他一个初始值0，也就是默认第一个标签页面。
+        //这是底部导航栏自带的位标属性，表示底部导航栏当前处于哪个导航标签。
+        // 给他一个初始值0，也就是默认第一个标签页面。
         currentIndex: _currentIndex,
         //点击底部导航栏变更状态
-        onTap: (int i) {
+        onTap: (int i) async {
           setState(() {
             _currentIndex = i;
           });

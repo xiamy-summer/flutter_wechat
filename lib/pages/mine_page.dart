@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wechat/widget/appbar_widget.dart';
 
+import 'personal_information.dart';
+
 /// @author SumMer
 /// @date 2019-06-12 01214:47
 /// @Description: 我的页面
@@ -13,6 +15,8 @@ class MinePageWidget extends StatefulWidget {
 }
 
 class _MinePageWidgetState extends State<MinePageWidget> {
+  String headPortrait = "assets/baby.jpg";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +36,7 @@ class _MinePageWidgetState extends State<MinePageWidget> {
                   new ClipRRect(
                     borderRadius: BorderRadius.circular(16.0),
                     child: new Image.asset(
-                      "assets/baby.jpg",
+                      headPortrait,
                       width: 70,
                       height: 70,
                       fit: BoxFit.cover,
@@ -44,20 +48,31 @@ class _MinePageWidgetState extends State<MinePageWidget> {
                         "SumMer",
                         style: TextStyle(fontSize: 25.0),
                       ),
-                      subtitle: new Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          new Text("微信号：12345678"),
-                          new Image.asset(
-                            "assets/qrcode.png",
-                            width: 20,
-                            height: 20,
-                          ),
-                          new Icon(
-                            Icons.arrow_forward_ios,
-                            size: 20.0,
-                          ),
-                        ],
+                      subtitle: new GestureDetector(
+                        onTap: () async {
+                          //路由跳转
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) =>
+                                  new PersionalInfoWidget(headPortrait)));
+                        },
+                        child: new Row(
+                          //位置，把2边空白处填满，并平分
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            new Text("微信号：12345678"),
+                            new Image.asset(
+                              "assets/qrcode.png",
+                              width: 20,
+                              height: 20,
+                            ),
+                            new Icon(
+                              Icons.arrow_forward_ios,
+                              size: 20.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   )
