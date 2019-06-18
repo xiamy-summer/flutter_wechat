@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wechat/widget/appbar_widget.dart';
 
+import 'pay_page.dart';
 import 'personal_information.dart';
 
 /// @author SumMer
@@ -15,7 +16,7 @@ class MinePageWidget extends StatefulWidget {
 }
 
 class _MinePageWidgetState extends State<MinePageWidget> {
-  String headPortrait = "assets/baby.jpg";
+  String headPortrait = "assets/mine/baby.jpg";
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class _MinePageWidgetState extends State<MinePageWidget> {
                           children: <Widget>[
                             new Text("微信号：12345678"),
                             new Image.asset(
-                              "assets/qrcode.png",
+                              "assets/mine/qrcode.png",
                               width: 20,
                               height: 20,
                             ),
@@ -144,6 +145,9 @@ class _MinePageWidgetState extends State<MinePageWidget> {
               switch (title) {
                 case "支付":
                   print("支付");
+                  //路由跳转
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) => new Pay()));
                   break;
                 case "设置":
                   print("设置");

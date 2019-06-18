@@ -21,14 +21,14 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
       appBar: AppBarWidget(title: "发现"),
       body: new ListView(
         children: <Widget>[
-          _findnormalcell("assets/ff_IconShowAlbum.png", "朋友圈",
-              "assets/arrowOnclick_ico@2x.png"),
-          _findnormalcell("assets/ff_IconQRCode.png", "扫一扫",
-              "assets/arrowOnclick_ico@2x.png"),
-          _findnormalcell("assets/GameCenterH5GameMenuBtn@2x.png", "游戏",
-              "assets/arrowOnclick_ico@2x.png"),
-          _findnormalcell("assets/PaidDetail_MiniProgram@2x.png", "小程序",
-              "assets/arrowOnclick_ico@2x.png"),
+          _findnormalcell("assets/discover/ff_IconShowAlbum.png", "朋友圈",
+              "assets/2.0x/arrowOnclick_ico@2x.png"),
+          _findnormalcell("assets/discover/ff_IconQRCode.png", "扫一扫",
+              "assets/2.0x/arrowOnclick_ico@2x.png"),
+          _findnormalcell("assets/2.0x/GameCenterH5GameMenuBtn@2x.png", "游戏",
+              "assets/2.0x/arrowOnclick_ico@2x.png"),
+          _findnormalcell("assets/2.0x/PaidDetail_MiniProgram@2x.png", "小程序",
+              "assets/2.0x/arrowOnclick_ico@2x.png"),
         ],
       ),
     );

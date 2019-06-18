@@ -51,7 +51,7 @@ class _PersionalInfoWidgetState extends State<PersionalInfoWidget> {
           _cardbeltwidget(
             "我的二维码",
             new Image.asset(
-              "assets/qrcode.png",
+              "assets/mine/qrcode.png",
               width: 25,
               height: 25,
             ),

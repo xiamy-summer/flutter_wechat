@@ -39,12 +39,12 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
-              "assets/tabbar_mainframe@3x.png",
+              "assets/3.0x/tabbar_mainframe@3x.png",
               width: itemSize,
               height: itemSize,
             ),
             activeIcon: Image.asset(
-              "assets/tabbar_mainframeHL@3x.png",
+              "assets/3.0x/tabbar_mainframeHL@3x.png",
               width: itemSize,
               height: itemSize,
             ),
@@ -54,12 +54,12 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              "assets/tabbar_contacts@3x.png",
+              "assets/3.0x/tabbar_contacts@3x.png",
               width: itemSize,
               height: itemSize,
             ),
             activeIcon: Image.asset(
-              "assets/tabbar_contactsHL@3x.png",
+              "assets/3.0x/tabbar_contactsHL@3x.png",
               width: itemSize,
               height: itemSize,
             ),
@@ -69,12 +69,12 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              "assets/tabbar_discover@3x.png",
+              "assets/3.0x/tabbar_discover@3x.png",
               width: itemSize,
               height: itemSize,
             ),
             activeIcon: Image.asset(
-              "assets/tabbar_discoverHL@3x.png",
+              "assets/3.0x/tabbar_discoverHL@3x.png",
               width: itemSize,
               height: itemSize,
             ),
@@ -84,12 +84,12 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              "assets/tabbar_me@3x.png",
+              "assets/3.0x/tabbar_me@3x.png",
               width: itemSize,
               height: itemSize,
             ),
             activeIcon: Image.asset(
-              "assets/tabbar_meHL@3x.png",
+              "assets/3.0x/tabbar_meHL@3x.png",
               width: itemSize,
               height: itemSize,
             ),
