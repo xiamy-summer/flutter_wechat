@@ -48,26 +48,41 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/tabbar_contacts@3x.png
-    - assets/tabbar_contactsHL@3x.png
-    - assets/tabbar_discover@3x.png
-    - assets/tabbar_discoverHL@3x.png
-    - assets/tabbar_mainframe@3x.png
-    - assets/tabbar_mainframeHL@3x.png
-    - assets/tabbar_me@3x.png
-    - assets/tabbar_meHL@3x.png
-    - assets/haugnbo.png
-    - assets/person_add.png
-    - assets/ff_IconShowAlbum@2x.png
-    - assets/ff_IconShowAlbum@3x.png
-    - assets/ff_IconShowAlbum.png
-    - assets/arrowOnclick_ico@2x.png
-    - assets/ff_IconQRCode.png
-    - assets/PaidDetail_MiniProgram@2x.png
-    - assets/GameCenterH5GameMenuBtn@2x.png
-    - assets/baby.jpg
-    - assets/qrcode.png
+    - assets/2.0x/arrowOnclick_ico@2x.png
+    - assets/2.0x/ff_IconShowAlbum@2x.png
+    - assets/2.0x/GameCenterH5GameMenuBtn@2x.png
+    - assets/2.0x/PaidDetail_MiniProgram@2x.png
+    - assets/3.0x/ff_IconShowAlbum@3x.png
+    - assets/3.0x/tabbar_contacts@3x.png
+    - assets/3.0x/tabbar_contactsHL@3x.png
+    - assets/3.0x/tabbar_discover@3x.png
+    - assets/3.0x/tabbar_discoverHL@3x.png
+    - assets/3.0x/tabbar_mainframe@3x.png
+    - assets/3.0x/tabbar_mainframeHL@3x.png
+    - assets/3.0x/tabbar_me@3x.png
+    - assets/3.0x/tabbar_meHL@3x.png
+    - assets/discover/ff_IconQRCode.png
+    - assets/discover/ff_IconShowAlbum.png
+    - assets/mine/baby.jpg
+    - assets/mine/qrcode.png
+    - assets/mine/Insurance.png
+    - assets/mine/public_welfare.png
+    - assets/mine/city_services.png
+    - assets/mine/qb_recharge.png
+    - assets/mine/finance.png
+    - assets/mine/phone_replenishing.png
+    - assets/mine/borrow_money.png
+    - assets/mine/Credit_card_payment.png
+    - assets/mine/WCPayOfflinePay.png
+    - assets/mine/installed.png
 
+    - assets/mine/mogujie.png
+    - assets/mine/pinduoduo.png
+    - assets/mine/dazong.png
+    - assets/mine/maoyan.png
+    - assets/mine/meituan.png
+    - assets/mine/jd.png
+    - assets/mine/didi.png
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware.
 
