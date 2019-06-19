@@ -26,6 +26,9 @@ dependencies:
   dio: ^2.0.0 #网络请求
   shared_preferences: ^0.4.0 #数据存储
 
+  image_picker: ^0.4.12
+  video_player: ^0.8.0
+
 
 dev_dependencies:
   flutter_test:

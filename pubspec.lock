@@ -60,6 +60,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  image_picker:
+    dependency: "direct main"
+    description:
+      name: image_picker
+      url: "https://pub.flutter-io.cn/"
+    source: hosted
+    version: "0.4.12+1"
   matcher:
     dependency: transitive
     description:
@@ -163,6 +170,13 @@ packages:
       url: "https://pub.flutter-io.cn/"
     source: hosted
     version: "2.0.8"
+  video_player:
+    dependency: "direct main"
+    description:
+      name: video_player
+      url: "https://pub.flutter-io.cn/"
+    source: hosted
+    version: "0.8.0"
 sdks:
   dart: ">=2.2.0 <3.0.0"
-  flutter: ">=0.1.4 <2.0.0"
+  flutter: ">=0.2.5 <2.0.0"

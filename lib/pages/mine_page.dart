@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:video_player/video_player.dart';
 import 'package:wechat/widget/appbar_widget.dart';
 
 import 'pay_page.dart';
@@ -16,14 +20,54 @@ class MinePageWidget extends StatefulWidget {
 }
 
 class _MinePageWidgetState extends State<MinePageWidget> {
+
+  Future <File> _imageFile;
+  bool isVideo = false;
+  VideoPlayerController _controller; //视频播放器
+  VoidCallback listener; //闭包 or block
+
+  void _onImageButtonPressed(ImageSource source) {
+    setState(() {
+      if (_controller != null) {
+        _controller.setVolume(0.0);
+        _controller.removeListener(listener);
+      }
+
+      if (isVideo) {
+        ImagePicker.pickVideo(source: source).then((File file) {
+          if (file != null && mounted) {
+            setState(() {
+              _controller = VideoPlayerController.file(file)
+                ..addListener(listener)
+                ..setVolume(1.0) //音量
+                ..initialize() //初始化(异步)
+                ..setLooping(true) //循环播放
+                ..play();
+            });
+          }
+        });
+      } else {
+        _imageFile = ImagePicker.pickImage(source: source);
+      }
+    });
+  }
+
+
   String headPortrait = "assets/mine/baby.jpg";
+  File _image;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBarWidget(
         shadow: 0,
-        iconButton: Icon(Icons.camera_alt),
+        iconButton: new GestureDetector(
+          child: Icon(Icons.camera_alt),
+          onTap: () async {
+            print("调用相机");
+            _onImageButtonPressed(ImageSource.camera);
+          },
+        ),
         bgcolor: Colors.white,
       ),
       body: new ListView(
