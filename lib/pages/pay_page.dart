@@ -8,7 +8,6 @@ import 'package:wechat/widget/appbar_widget.dart';
 class Pay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBarWidget(
@@ -73,7 +72,6 @@ class ServicesWidget extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return titleContex == '腾讯服务'
         ? new _TencentServicesWidgetState()
         : new _ThirdPartyServicesWidgetState();
@@ -82,6 +80,7 @@ class ServicesWidget extends StatefulWidget {
 
 Widget _individualServices(String image, String textconten) {
   return FlatButton(
+    color: Colors.white,
     child: new Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -101,7 +100,6 @@ Widget _individualServices(String image, String textconten) {
 class _TencentServicesWidgetState extends State<ServicesWidget> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Card(
       elevation: 0.5,
       child: new Column(
@@ -113,13 +111,14 @@ class _TencentServicesWidgetState extends State<ServicesWidget> {
           ),
           new Divider(height: 0.0),
           new Container(
+            color: Colors.grey[50],
             child: new GridView.count(
               //每行显示数量
               crossAxisCount: 3,
               //左右边距
-              crossAxisSpacing: 2,
+              crossAxisSpacing: 3,
               //上下边距
-              mainAxisSpacing: 2,
+              mainAxisSpacing: 3,
               //显示比例
               childAspectRatio: 1.0,
               // 处理listview嵌套报错
@@ -149,7 +148,6 @@ class _TencentServicesWidgetState extends State<ServicesWidget> {
 class _ThirdPartyServicesWidgetState extends State<ServicesWidget> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Card(
       elevation: 0.5,
       child: new Column(
@@ -161,6 +159,7 @@ class _ThirdPartyServicesWidgetState extends State<ServicesWidget> {
           ),
           new Divider(height: 0.0),
           new Container(
+            color: Colors.grey[50],
             child: new GridView.count(
               //每行显示数量
               crossAxisCount: 3,
