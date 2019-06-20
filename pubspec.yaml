@@ -29,6 +29,8 @@ dependencies:
   image_picker: ^0.4.12
   video_player: ^0.8.0
 
+  provider: ^3.0.0+1 #状态管理
+
 
 dev_dependencies:
   flutter_test:

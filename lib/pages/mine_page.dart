@@ -1,10 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:video_player/video_player.dart';
+import 'package:provider/provider.dart';
+import 'package:wechat/model/image_model.dart';
 import 'package:wechat/widget/appbar_widget.dart';
 
+import 'image_page.dart';
 import 'pay_page.dart';
 import 'personal_information.dart';
 
@@ -20,52 +20,44 @@ class MinePageWidget extends StatefulWidget {
 }
 
 class _MinePageWidgetState extends State<MinePageWidget> {
-
-  Future <File> _imageFile;
-  bool isVideo = false;
-  VideoPlayerController _controller; //视频播放器
-  VoidCallback listener; //闭包 or block
-
-  void _onImageButtonPressed(ImageSource source) {
-    setState(() {
-      if (_controller != null) {
-        _controller.setVolume(0.0);
-        _controller.removeListener(listener);
-      }
-
-      if (isVideo) {
-        ImagePicker.pickVideo(source: source).then((File file) {
-          if (file != null && mounted) {
-            setState(() {
-              _controller = VideoPlayerController.file(file)
-                ..addListener(listener)
-                ..setVolume(1.0) //音量
-                ..initialize() //初始化(异步)
-                ..setLooping(true) //循环播放
-                ..play();
-            });
-          }
-        });
-      } else {
-        _imageFile = ImagePicker.pickImage(source: source);
-      }
-    });
-  }
-
+  final imagemodel = ImageModel();
 
   String headPortrait = "assets/mine/baby.jpg";
-  File _image;
 
   @override
   Widget build(BuildContext context) {
+    final _counter = Provider.of<ImageModel>(context);
     return Scaffold(
       appBar: new AppBarWidget(
         shadow: 0,
         iconButton: new GestureDetector(
           child: Icon(Icons.camera_alt),
-          onTap: () async {
+          onTap: () {
             print("调用相机");
-            _onImageButtonPressed(ImageSource.camera);
+            //弹出底部菜单
+            showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        leading: new Icon(Icons.camera),
+                        title: new Text("相机"),
+                        onTap: () async {
+                          _imageWidget(ImageSource.camera, _counter);
+                        },
+                      ),
+                      new ListTile(
+                        leading: new Icon(Icons.photo_library),
+                        title: new Text("相册"),
+                        onTap: () async {
+                          _imageWidget(ImageSource.gallery, _counter);
+                        },
+                      )
+                    ],
+                  );
+                });
           },
         ),
         bgcolor: Colors.white,
@@ -173,6 +165,21 @@ class _MinePageWidgetState extends State<MinePageWidget> {
         ],
       ),
     );
+  }
+
+  Future<Widget> _imageWidget(ImageSource imageSource, _counter) async {
+    //调用相机
+    var _image = await ImagePicker.pickImage(source: imageSource);
+    //关闭底部弹出框
+    Navigator.pop(context);
+    //设置值。
+    _counter.setImageFile(_image);
+    //如果不图片文件不为空，预览图片
+    if (_counter.getImageFile != null) {
+      //跳转页面。预览图片
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => ImagePage()));
+    }
   }
 
   Card _card(String title, IconData leadingIcon,

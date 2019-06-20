@@ -2,34 +2,43 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:wechat/model/image_model.dart';
 import 'package:wechat/pages/botton_navigation.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+  final imagemodel = ImageModel();
+//  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   runApp(
-    new MaterialApp(
-      theme: new ThemeData(
-        scaffoldBackgroundColor: Colors.grey[200],
-        appBarTheme: AppBarTheme(
-          color: Colors.grey[200],
-          //尾部icons图标主题
-          actionsIconTheme: IconThemeData(color: Colors.black87),
-          //icons图标主题
-          iconTheme: IconThemeData(color: Colors.black87),
-          //文字格式
-          textTheme: TextTheme(
-            title: TextStyle(
-                color: Colors.black87,
-                fontSize: 20,
-                fontWeight: FontWeight.w600),
+    MultiProvider(
+      //状态管理
+      providers: [
+        ChangeNotifierProvider.value(value: imagemodel),
+      ],
+      child: new MaterialApp(
+        theme: new ThemeData(
+          scaffoldBackgroundColor: Colors.grey[200],
+          appBarTheme: AppBarTheme(
+            color: Colors.grey[200],
+            //尾部icons图标主题
+            actionsIconTheme: IconThemeData(color: Colors.black87),
+            //icons图标主题
+            iconTheme: IconThemeData(color: Colors.black87),
+            //文字格式
+            textTheme: TextTheme(
+              title: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600),
+            ),
           ),
         ),
+        //消除右上角的debug图标
+        debugShowCheckedModeBanner: false,
+        //初始路由
+        initialRoute: '/',
+        home: new BottomNavigationWidget(),
       ),
-      //消除右上角的debug图标
-      debugShowCheckedModeBanner: false,
-      //初始路由
-      initialRoute: '/',
-      home: new BottomNavigationWidget(),
     ),
   );
   if (Platform.isAndroid) {
