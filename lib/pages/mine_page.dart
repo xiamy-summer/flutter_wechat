@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:wechat/model/image_model.dart';
 import 'package:wechat/widget/appbar_widget.dart';
 
-import 'image_page.dart';
 import 'pay_page.dart';
 import 'personal_information.dart';
 
@@ -29,6 +28,7 @@ class _MinePageWidgetState extends State<MinePageWidget> {
     final _counter = Provider.of<ImageModel>(context);
     return Scaffold(
       appBar: new AppBarWidget(
+        bgcolor: Colors.white,
         shadow: 0,
         iconButton: new GestureDetector(
           child: Icon(Icons.camera_alt),
@@ -36,31 +36,31 @@ class _MinePageWidgetState extends State<MinePageWidget> {
             print("调用相机");
             //弹出底部菜单
             showModalBottomSheet(
-                context: context,
-                builder: (BuildContext context) {
-                  return new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new ListTile(
-                        leading: new Icon(Icons.camera),
-                        title: new Text("相机"),
-                        onTap: () async {
-                          _imageWidget(ImageSource.camera, _counter);
-                        },
-                      ),
-                      new ListTile(
-                        leading: new Icon(Icons.photo_library),
-                        title: new Text("相册"),
-                        onTap: () async {
-                          _imageWidget(ImageSource.gallery, _counter);
-                        },
-                      )
-                    ],
-                  );
-                });
+              context: context,
+              builder: (BuildContext context) {
+                return new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      leading: new Icon(Icons.camera),
+                      title: new Text("相机"),
+                      onTap: () async {
+                        _imageWidget(ImageSource.camera, _counter);
+                      },
+                    ),
+                    new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text("相册"),
+                      onTap: () async {
+                        _imageWidget(ImageSource.gallery, _counter);
+                      },
+                    )
+                  ],
+                );
+              },
+            );
           },
         ),
-        bgcolor: Colors.white,
       ),
       body: new ListView(
         children: <Widget>[
@@ -89,10 +89,12 @@ class _MinePageWidgetState extends State<MinePageWidget> {
                         onTap: () async {
                           //路由跳转
                           Navigator.push(
-                              context,
-                              new MaterialPageRoute(
-                                  builder: (context) =>
-                                  new PersionalInfoWidget(headPortrait)));
+                            context,
+                            new MaterialPageRoute(
+                              builder: (context) =>
+                              new PersionalInfoWidget(headPortrait),
+                            ),
+                          );
                         },
                         child: new Row(
                           //位置，把2边空白处填满，并平分
@@ -177,8 +179,23 @@ class _MinePageWidgetState extends State<MinePageWidget> {
     //如果不图片文件不为空，预览图片
     if (_counter.getImageFile != null) {
       //跳转页面。预览图片
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => ImagePage()));
+//      Navigator.of(context)
+//          .push(MaterialPageRoute(builder: (context) => ImagePage()));
+      showDialog(
+        context: context,
+//          barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Consumer<ImageModel>(
+            builder: (BuildContext context, ImageModel iamge, Widget child) =>
+            new Center(
+              child: new Image.file(
+                iamge.getImageFile,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+          );
+        },
+      );
     }
   }
 
