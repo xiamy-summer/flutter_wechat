@@ -28,6 +28,7 @@ class _MinePageWidgetState extends State<MinePageWidget> {
     final _counter = Provider.of<ImageModel>(context);
     return Scaffold(
       appBar: new AppBarWidget(
+        title: "微信",
         bgcolor: Colors.white,
         shadow: 0,
         iconButton: new GestureDetector(
