@@ -66,7 +66,6 @@ class SearchPageRouteWidget extends StatefulWidget {
 
 class __SearchPageRouteState extends State<SearchPageRouteWidget> {
   String _query;
-  final _textKey = GlobalKey<FormFieldState>();
   bool _isVlues;
 
   @override
@@ -83,41 +82,36 @@ class __SearchPageRouteState extends State<SearchPageRouteWidget> {
         elevation: 0.0,
         automaticallyImplyLeading: false, //设置没有返回按钮
         title: new Container(
+          height: 35,
           decoration: new BoxDecoration(
               color: Colors.white,
               //边角圆度
               borderRadius: new BorderRadius.circular(5.0)),
-          //设置最大高度
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: 35,
-            ),
-            //搜索文本框
-            child: new TextField(
-              key: _textKey,
-              autofocus: true,
-              controller: TextEditingController.fromValue(TextEditingValue(
-                // 设置内容
-                  text: this._query,
-                  // 保持光标在最后
-                  selection: TextSelection.fromPosition(TextPosition(
-                      affinity: TextAffinity.downstream,
-                      offset: this._query.length)))),
-              //修改键盘状态为搜索
-              textInputAction: TextInputAction.search,
-              onSubmitted: (str) {
-                print(str);
-                setState(() {
-                  this._isVlues = false;
-                });
-              },
-              onChanged: (str) {
-                setState(() {
-                  this._query = str;
-                });
-              },
-              decoration: InputDecoration(
-                //在文本框左侧图标
+          //搜索文本框
+          child: new TextField(
+            autofocus: true,
+            controller: TextEditingController.fromValue(TextEditingValue(
+              // 设置内容
+                text: this._query,
+                // 保持光标在最后
+                selection: TextSelection.fromPosition(TextPosition(
+                    affinity: TextAffinity.downstream,
+                    offset: this._query.length)))),
+            //修改键盘状态为搜索
+            textInputAction: TextInputAction.search,
+            onSubmitted: (str) {
+              print(str);
+              setState(() {
+                this._isVlues = false;
+              });
+            },
+            onChanged: (str) {
+              setState(() {
+                this._query = str;
+              });
+            },
+            decoration: InputDecoration(
+              //在文本框左侧图标
                 prefixIcon: Icon(
                   Icons.search,
                   color: Colors.grey,
@@ -141,12 +135,10 @@ class __SearchPageRouteState extends State<SearchPageRouteWidget> {
                 disabledBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 hintText: "搜索",
-                //内容边距
-                contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
-              ),
+                contentPadding: EdgeInsets.symmetric(vertical: 5.0)
             ),
           ),
-        ),
+          ),
         actions: buildActions(context),
       ),
       body: _isVlues ? buildSuggestions(context) : buildResults(context),
