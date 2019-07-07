@@ -61,7 +61,7 @@ packages:
       name: flutter_screenutil
       url: "https://pub.flutter-io.cn/"
     source: hosted
-    version: "0.4.6"
+    version: "0.5.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -109,6 +109,20 @@ packages:
       url: "https://pub.flutter-io.cn/"
     source: hosted
     version: "3.0.0+1"
+  qr:
+    dependency: transitive
+    description:
+      name: qr
+      url: "https://pub.flutter-io.cn/"
+    source: hosted
+    version: "1.1.1"
+  qr_flutter:
+    dependency: "direct main"
+    description:
+      name: qr_flutter
+      url: "https://pub.flutter-io.cn/"
+    source: hosted
+    version: "2.1.0+55"
   quiver:
     dependency: transitive
     description:
@@ -193,4 +207,4 @@ packages:
     version: "0.8.0"
 sdks:
   dart: ">=2.2.0 <3.0.0"
-  flutter: ">=0.2.5 <2.0.0"
+  flutter: ">=1.2.0 <2.0.0"

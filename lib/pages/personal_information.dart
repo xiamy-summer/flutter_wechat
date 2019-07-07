@@ -1,5 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wechat/widget/appbar_widget.dart';
+
+import 'qrcode.dart';
+
 
 /// @author SumMer
 /// @date 2019-06-14 0149:26
@@ -93,18 +99,39 @@ class _PersionalInfoWidgetState extends State<PersionalInfoWidget> {
     );
   }
 
-  Card _cardbeltwidget(String context, Widget widget) {
+  Card _cardbeltwidget(String text, Widget widget) {
     return new Card(
       margin: EdgeInsets.all(0.0),
       child: new FlatButton(
         onPressed: () {
-          print("点击");
+          ScreenUtil.instance = ScreenUtil(width: window.physicalSize.width,
+              height: window.physicalSize.height)
+            ..init(context);
+          print("${window.physicalSize.height / 4 + 50}");
+          print("${window.physicalSize.width / 3 + 80}");
+          print("${ScreenUtil.getInstance().setWidth(300)}");
+          print("${ScreenUtil.getInstance().setHeight(300)}");
+
+
+          switch (text) {
+            case "我的二维码":
+            //路由跳转
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) =>
+                      new QrCode(
+                        "summer-123456",
+                        size: 250.0,
+                      )));
+              break;
+          }
         },
         child: new Container(
           margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
           child: new Row(
             children: <Widget>[
-              new Text(context),
+              new Text(text),
               new Expanded(
                 child: new Row(
                   //位置，显示在最右侧

@@ -31,8 +31,8 @@ dependencies:
 
   provider: ^3.0.0+1 #状态管理
 
-  flutter_screenutil: ^0.4.2 #适配
-
+  flutter_screenutil: ^0.5.3 #适配
+  qr_flutter: ^2.1.0+55 #生成二维码
 
 dev_dependencies:
   flutter_test:
